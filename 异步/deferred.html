@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // jquery 1.5之后 
+    $.ajax('./data.json')
+        .done(function () {
+            console.log(1)
+
+        }).fail(function () {
+            console.log(2)
+
+        }).done(function () {
+            console.log(3)
+        })
+    // var wait = function() {
+    //     var task = function() {
+    //         console.log('执行完成');
+    //     }
+    //     setTimeout(task, 2000)
+    // }
+    // wait();
+    // 新增需求:需要在执行完成后进行某些特别复杂的操作, 
+    // 代码可能很多, 而且分好几个步骤
+    // var wait = function () {
+    //     var task = function () {
+    //         console.log('执行完毕');
+    //         // 执行复杂代码
+    //     }
+    //     setTimeout(task, 2000)
+    // }
+    // wait();
+    // function waitHandle() {
+    //     var dtd = $.Deferred();
+    //     var wait = function (dtd) {
+    //         var task = function () {
+    //             console.log('执行完毕');
+    //             // 执行复杂代码
+    //             // 成功
+    //             dtd.resolve()
+    //             // dtd.reject()
+
+    //         }
+    //         setTimeout(task, 2000);
+    //         return dtd.promise();
+    //     }
+    //     return wait(dtd);
+    // }
+    // var w = waitHandle();
+    // $.when(w).then(function () {
+    //     console.log('ok 1')
+    // }, function () {
+    //     console.log('err 1')
+    // }).then(function () {
+    //     console.log('ok 2')
+    // }, function () {
+    //     console.log('err 2')
+    // })
+
+</script>
+
+</html>

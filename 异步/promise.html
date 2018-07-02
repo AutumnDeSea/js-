@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function loadImg(src) {
+        const promise = new Promise(function (resolve, reject) {
+            var img = document.createElement('img');
+            img.onload = function () {
+                resolve(img);
+            };
+            img.onerror = function () {
+                reject('图片获取异常');
+            }
+            // throw new Error('自定义错误')
+            img.src = src;
+        })
+        return promise;
+    }
+    var src1 = '11';
+    var src2 = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528974986870&di=7a4d361e70fb123a608f7f1b3741a7da&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201511%2F17%2F20151117231628_UtK4H.jpeg';
+    
+    // var res = loadImg(src);
+    // res.then(function(img){
+    //     console.log(img.width)
+    // },function(){
+    //     console.log('img err')
+    // })
+    // then 只接受一个参数, 异常用catch捕获
+    // res.then(function (img) {
+    //     console.log(1, img.width)
+    //     return img;
+    // }).then(function (img) {
+    //     console.log(2, img.height)
+    // }).catch(function (ex) {
+    //     console.log(ex)
+    // })
+    var res1 = loadImg(src1);
+    var res2 = loadImg(src2);
+    res1.then(function(src1) {
+        console.log('第一个图片加载完成', src1.width)
+        return res2;
+    }).then(function(src2){
+        console.log('第二个图片加载完成', src2.width)
+    }).catch(function(ex) {
+        console.log(ex)
+    })
+</script>
+
+</html>
